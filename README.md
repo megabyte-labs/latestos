@@ -30,14 +30,12 @@ Open your terminal and run:
 latestos <os_name> <json_filename> <bash_command>
 ```
 
-**NOTES**
-- The last two arguments are optional.
-- By default, json_filename is "template.json" and no bash command is passed. However... see next bulletpoint.
-- Whenever you'll pass a bash command, you must also pass the json_filename.
+**NOTE**
+- The last argument is optional.
 
 ## Examples:
 ```sh
-latestos fedora
+latestos fedora template.json
 ```
 
 ```sh
