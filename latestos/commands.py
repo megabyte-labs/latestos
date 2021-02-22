@@ -10,7 +10,13 @@ from latestos.vagrantup.check import VAGRANTUP_BOX_OS_LIST, vagrantup_check
 DEFAULT_JSON_FILENAME = "./template.json"
 
 
-def main(os_name: str,
+def main():
+    # Get os_name, json_filename, bash_command from command line arguments
+    os_name, json_filename, bash_command = get_params()
+    run(os_name, json_filename, bash_command)
+
+
+def run(os_name: str,
          json_filename: str = DEFAULT_JSON_FILENAME,
          bash_command: list = []):
     """ Entry point for the script """
@@ -68,7 +74,4 @@ def run_subprocess(bash_command: list, verbose: bool = False):
 
 
 if __name__ == "__main__":
-    # Get os_name, json_filename, bash_command from command line arguments
-    os_name, json_filename, bash_command = get_params()
-
-    main(os_name, json_filename, bash_command)
+    main()
