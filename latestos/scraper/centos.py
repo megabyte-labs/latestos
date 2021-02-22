@@ -1,4 +1,4 @@
-from scraper.mirrors import ArizonaMirror
+from latestos.scraper.mirrors import ArizonaMirror
 
 
 class CentOSScraper(ArizonaMirror):

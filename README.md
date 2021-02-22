@@ -1,9 +1,28 @@
-Setup
-1. Make sure you have python3 installed.
-2. Install dependencies: pip3 install -r requirements.txt
+# LatestOS
 
-Run
-1. Simply: python3 run-osname.py
+Latest OS version checker for Linux Distros using the Arizona Mirror
 
-About Config:
-You can change the location of the JSON files in the config/os_files.py file
+It currently checks the following distros:
+- arch
+- ubuntu
+- fedora
+- centos
+
+## Installation
+LatestOS requires [Python 3](https://www.python.org/downloads/) to run.
+
+Install with pip:
+
+```sh
+pip install latestos
+```
+
+For UNIX-based systems with both Python 2 and Python 3 installed:
+
+```sh
+pip3 install latestos
+```
+
+## How to run?
+
+To be added

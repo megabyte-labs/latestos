@@ -1,13 +1,13 @@
 import sys
 
-from scraper.utils import get_os_scraper
-from files.json import update_json_release_file
+from latestos.scraper.utils import get_os_scraper
+from latestos.files.json import update_json_release_file
 
 
 DEFAULT_JSON_FILENAME = "./template.json"
 
 
-def run():
+def main():
     """ Entry point for the script """
     # Get os_name, json_filename, bash_command from command line arguments
     os_name, json_filename, bash_command = get_params()
@@ -45,5 +45,5 @@ def get_params() -> tuple:
 
     return os_name, json_filename, bash_command
 
-
-run()
+if __name__ == "__main__":
+    main()

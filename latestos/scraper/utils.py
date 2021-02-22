@@ -1,8 +1,8 @@
-from scraper.base import BaseScraper
-from scraper.arch import ArchScraper
-from scraper.centos import CentOSScraper
-from scraper.fedora import FedoraScraper
-from scraper.ubuntu import UbuntuScraper
+from latestos.scraper.base import BaseScraper
+from latestos.scraper.arch import ArchScraper
+from latestos.scraper.centos import CentOSScraper
+from latestos.scraper.fedora import FedoraScraper
+from latestos.scraper.ubuntu import UbuntuScraper
 
 
 def get_os_scraper(os_name: str) -> BaseScraper:

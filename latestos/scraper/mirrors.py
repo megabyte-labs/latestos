@@ -3,7 +3,7 @@ from abc import ABC
 import lxml.html
 from lxml.html import HtmlElement
 
-from scraper.base import BaseScraper
+from latestos.scraper.base import BaseScraper
 
 
 class ArizonaMirror(BaseScraper, ABC):

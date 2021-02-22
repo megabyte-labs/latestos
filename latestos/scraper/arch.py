@@ -1,6 +1,6 @@
 import lxml.html
 
-from scraper.mirrors import ArizonaMirror
+from latestos.scraper.mirrors import ArizonaMirror
 
 class ArchScraper(ArizonaMirror):
     """ Latest Arch Version Checker """
