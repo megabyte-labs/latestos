@@ -36,7 +36,7 @@ def read_json_file(json_file: str) -> dict:
             return json.loads(f.read())
     except FileNotFoundError:
         # If the file does not exist, use the default template
-        with open("./templates/template.json") as f:
+        with open("./latestos/templates/template.json") as f:
             return json.loads(f.read())
     except Exception:
         # If there's an unexpected error, then just re-raise the exception

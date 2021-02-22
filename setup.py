@@ -1,16 +1,17 @@
 from distutils.core import setup
+from setuptools import find_packages
 
 
 setup(
     name='latestos',
-    packages=['latestos'],
-    version='0.1',
+    packages=find_packages(),
+    version='0.2',
     license='MIT',
     description='Latest OS version checker for Linux Distros using the Arizona Mirror',
     author='Renny Montero',
     author_email='rennym19@gmail.com',
     url='https://github.com/rennym19/latestos',
-    download_url='https://github.com/rennym19/latestos/archive/v_01.tar.gz',
+    download_url='https://github.com/rennym19/latestos/archive/v_02.tar.gz',
     keywords=['OS', 'LINUX', 'VERSION', 'CHECKER', 'SCRAPER'],
     install_requires=[
         'requests',

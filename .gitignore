@@ -1,3 +1,6 @@
 venv/
 
+dist/
+latestos.egg-info/
+
 template.json
