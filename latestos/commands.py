@@ -10,15 +10,15 @@ from latestos.vagrantup.check import VAGRANTUP_BOX_OS_LIST, vagrantup_check
 DEFAULT_JSON_FILENAME = "./template.json"
 
 
-def main():
+def get_latest_os():
     # Get os_name, json_filename, bash_command from command line arguments
     os_name, json_filename, bash_command = get_params()
     run(os_name, json_filename, bash_command)
 
 
 def run(os_name: str,
-         json_filename: str = DEFAULT_JSON_FILENAME,
-         bash_command: list = []):
+        json_filename: str = DEFAULT_JSON_FILENAME,
+        bash_command: list = []):
     """ Entry point for the script """
     # Get the scraper depending on the OS name
     scraper = get_os_scraper(os_name)
@@ -55,23 +55,23 @@ def get_params() -> tuple:
     # Extract the necessary variables
     os_name = args[0]
     json_filename = args[1] if len(args) > 1 else DEFAULT_JSON_FILENAME
-    bash_command = args[2:].split() if len(args) > 2 else []
+    bash_command = args[2:] if len(args) > 2 else []
 
     return os_name, json_filename, bash_command
 
 
-def run_subprocess(bash_command: list, verbose: bool = False):
+def run_subprocess(bash_command: list, verbose: bool = True):
     """
     Runs bash command.
     """
     # Open subprocess and run
-    process = subprocess.Popen(bash_command, stdout=subprocess.PIPE)
-    output, _ = process.communicate()
+    proc = subprocess.Popen(bash_command, stdout=subprocess.PIPE, shell=True)
+    output, _ = proc.communicate()
 
     # Print the output if necessary
     if verbose:
-        print(output)
+        print(output.decode("utf-8"))
 
 
 if __name__ == "__main__":
-    main()
+    get_latest_os()
