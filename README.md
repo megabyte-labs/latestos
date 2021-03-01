@@ -7,6 +7,8 @@ It currently checks the following distros:
 - ubuntu
 - fedora
 - centos
+- debian
+- raspbian
 
 ## Installation
 LatestOS requires [Python 3](https://www.python.org/downloads/) to run.
