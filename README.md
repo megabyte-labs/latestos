@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # LatestOS
 
 Latest OS version checker for Linux Distros using the Arizona Mirror
@@ -47,3 +48,8 @@ latestos arch ./mydir/template.json
 ```sh
 latestos ubuntu template.json ls .
 ```
+=======
+# OS Version
+
+Grabs the latest Linux distro version information from mirror.arizona.edu and injects it in a JSON file.
+>>>>>>> 02e3f771e59e8684989edcbd81698a62a0d5ecac
