@@ -16,9 +16,11 @@ def get_latest_os():
     run(os_name, json_filename, bash_command)
 
 
-def run(os_name: str,
-        json_filename: str = DEFAULT_JSON_FILENAME,
-        bash_command: list = []):
+def run(
+    os_name: str,
+    json_filename: str = DEFAULT_JSON_FILENAME,
+    bash_command: list = []
+) -> None:
     """ Entry point for the script """
     # Get the scraper depending on the OS name
     scraper = get_os_scraper(os_name)
@@ -48,7 +50,9 @@ def get_params() -> tuple:
     # If there is only one argument (script name), raise an exception
     if len(sys.argv) <= 1:
         raise ValueError(
-            "You need to pass the OS name (ubuntu, centos, fedora or arch)")
+            "You need to pass the OS name " \
+            "(ubuntu, centos, fedora, debian, raspbian or arch)"
+        )
 
     args = sys.argv[1:]
 
@@ -60,7 +64,7 @@ def get_params() -> tuple:
     return os_name, json_filename, bash_command
 
 
-def run_subprocess(bash_command: list, verbose: bool = True):
+def run_subprocess(bash_command: list, verbose: bool = True) -> None:
     """
     Runs bash command.
     """

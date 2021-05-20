@@ -21,10 +21,17 @@ class CentOSScraper(ArizonaMirror):
         for link in mirror_links:
             link_version = link.text
 
+            # Check if "stream"
+            if "stream" not in link_version:
+                continue
+
+            version_number = link_version.replace("-stream", "") \
+                                         .replace(".", "")[:-1]
+
             # Check if link is an OS version link (only numbers)
-            if link_version[:-1].isnumeric():
+            if version_number.isnumeric():
                 # Extract number
-                release_link_number = float(link_version[:-1])
+                release_link_number = float(version_number)
 
                 # Update latest release if necessary
                 if release_link_number > latest_release_number:
@@ -50,3 +57,18 @@ class CentOSScraper(ArizonaMirror):
             (bool): is iso checksum file
         """
         return href.endswith("CHECKSUM")
+
+    def get_iso_version(self, iso_filename: str) -> str:
+        """
+        Extracts ISO version from release.
+
+        Returns:
+            str: iso version
+        """
+        filename_sections = self.get_filename_sections(iso_filename)
+
+        # If the filename was properly extracted, return it
+        if len(filename_sections) >= 2:
+            return filename_sections[2]
+
+        raise Exception(f"Could not extract {iso_filename} OS version")
