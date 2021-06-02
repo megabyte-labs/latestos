@@ -26,7 +26,8 @@ class CentOSScraper(ArizonaMirror):
                 continue
 
             version_number = link_version.replace("-stream", "") \
-                                         .replace(".", "")[:-1]
+                                         .replace(".", "") \
+                                         .replace("/", "")
 
             # Check if link is an OS version link (only numbers)
             if version_number.isnumeric():
