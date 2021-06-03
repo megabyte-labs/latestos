@@ -3,4 +3,6 @@ venv/
 dist/
 latestos.egg-info/
 
+**/__pycache__/**
+
 template.json
