@@ -51,7 +51,7 @@ def get_params() -> tuple:
     if len(sys.argv) <= 1:
         raise ValueError(
             "You need to pass the OS name " \
-            "(ubuntu, centos, fedora, debian, raspbian or arch)"
+            "(ubuntu, centos, fedora, debian, raspbian, arch or windows)"
         )
 
     args = sys.argv[1:]

@@ -5,6 +5,7 @@ from latestos.scraper.fedora import FedoraScraper
 from latestos.scraper.ubuntu import UbuntuScraper
 from latestos.scraper.debian import DebianScraper
 from latestos.scraper.raspbian import RaspbianScraper
+from latestos.scraper.windows import WindowsInsidersPreviewScraper
 
 
 def get_os_scraper(os_name: str) -> BaseScraper:
@@ -28,5 +29,7 @@ def get_os_scraper(os_name: str) -> BaseScraper:
         return DebianScraper()
     elif os_name == "raspbian":
         return RaspbianScraper()
+    elif os_name == "windows":
+        return WindowsInsidersPreviewScraper()
     else:
         raise ValueError(f"{os_name}")

@@ -69,7 +69,9 @@ class CentOSScraper(ArizonaMirror):
         filename_sections = self.get_filename_sections(iso_filename)
 
         # If the filename was properly extracted, return it
-        if len(filename_sections) >= 2:
-            return filename_sections[2]
+        if len(filename_sections) >= 4:
+            major_release = filename_sections[2]
+            date = filename_sections[4]
+            return f"{major_release}.0.{date}"
 
         raise Exception(f"Could not extract {iso_filename} OS version")

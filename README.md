@@ -1,7 +1,6 @@
-<<<<<<< HEAD
-# LatestOS
+# OS Version 
 
-Latest OS version checker for Linux Distros using the Arizona Mirror
+Grabs the latest OS version information for different operating systems and injects it in a JSON file.
 
 It currently checks the following distros:
 - arch
@@ -10,6 +9,7 @@ It currently checks the following distros:
 - centos
 - debian
 - raspbian
+- windows insiders preview
 
 ## Installation
 LatestOS requires [Python 3](https://www.python.org/downloads/) to run.
@@ -25,6 +25,13 @@ For UNIX-based systems with both Python 2 and Python 3 installed:
 ```sh
 pip3 install latestos
 ```
+
+** Windows Insiders Preview **
+If you're interested in extracting the latest OS version for Windows Insiders Preview, you'll need to:
+1. Install Firefox
+2. Download and extract the corresponding geckodriver: https://github.com/mozilla/geckodriver/releases
+3. Make sure it's executable. If it isn't, just run: ```chmod +x geckodriver```
+4. Add it to your PATH or any location on system's PATH.
 
 ## How to run?
 
@@ -48,8 +55,3 @@ latestos arch ./mydir/template.json
 ```sh
 latestos ubuntu template.json ls .
 ```
-=======
-# OS Version
-
-Grabs the latest Linux distro version information from mirror.arizona.edu and injects it in a JSON file.
->>>>>>> 02e3f771e59e8684989edcbd81698a62a0d5ecac
