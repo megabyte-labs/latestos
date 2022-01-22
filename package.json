@@ -1,30 +1,25 @@
 {
+  "private": false,
+  "name": "latestos",
+  "version": "0.0.1",
+  "description": "A Python CLI that acquires direct links to operating system&#x27;s ISO installers",
+  "license": "MIT",
   "author": "Brian Zalewski <brian@megabyte.space> (https://megabyte.space)",
-  "blueprint": {
-    "binName": "latestos",
-    "customPackageName": "latestos",
-    "description": "A Python CLI that acquires direct links to operating system's ISO installers",
-    "group": "python",
-    "name": "LatestOS",
-    "overview": "**LatestOS** was born out of the desire for having a completely automated Packer build system that synchronizes with the latest releases of mainstream operating systems. Install LatestOS with `pip3` and then save the latest ISO download URLs and their SHA256SUMs to JSON files. It works by scanning a Linux distribution mirror (in the case of Linux). For Windows, it actually does some web scraping - there are details on settings up LatestOS for automatically acquiring the latest Windows Insider Preview ISO installer file below.",
-    "repository": {
-      "github": "https://github.com/ProfessorManhattan/latestos",
-      "gitlab": "https://gitlab.com/megabyte-labs/python/cli/latestos"
-    },
-    "slug": "latestos",
-    "subgroup": "cli",
-    "subheader_description": "Automatically scrape the ISO web link and SHA256SUM of the latest version of a handful of operating systems",
-    "title": "LatestOS - Automated ISO Installer Links"
+  "homepage": "https://megabyte.space",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ProfessorManhattan/latestos.git"
   },
   "bugs": {
     "email": "help@megabyte.space",
     "url": "https://gitlab.com/megabyte-labs/python/cli/latestos/-/issues"
   },
-  "commitlint": {
-    "extends": [
-      "@commitlint/config-conventional"
-    ],
-    "helpUrl": "https://megabyte.space/docs/contributing/commits"
+  "type": "module",
+  "scripts": {
+    "help": "task --list",
+    "prepare": "task common:husky",
+    "repair": "bash <(curl -sS https://install.doctor/repair)",
+    "start": "bash .config/start.sh"
   },
   "config": {
     "commitizen": {
@@ -32,7 +27,7 @@
     }
   },
   "dependencies": {},
-  "description": "A Python CLI that acquires direct links to operating system&#x27;s ISO installers",
+  "optionalDependencies": {},
   "devDependencies": {
     "@washingtondc/development": "^1.0.2",
     "@washingtondc/prettier": "^1.0.0",
@@ -40,23 +35,6 @@
     "eslint-config-strict-mode": "^1.0.0",
     "sleekfast": "^0.0.1"
   },
-  "engines": {
-    "node": ">=14.18.0"
-  },
-  "eslintConfig": {
-    "extends": "eslint-config-strict-mode"
-  },
-  "funding": [
-    {
-      "type": "opencollective",
-      "url": "https://opencollective.com/megabytelabs"
-    },
-    {
-      "type": "patreon",
-      "url": "https://www.patreon.com/ProfessorManhattan"
-    }
-  ],
-  "homepage": "https://megabyte.space",
   "keywords": [
     "advanced",
     "automation",
@@ -78,7 +56,50 @@
     "terminal",
     "washingtondc"
   ],
-  "license": "MIT",
+  "engines": {
+    "node": ">=14.18.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "blueprint": {
+    "binName": "latestos",
+    "customPackageName": "latestos",
+    "description": "A Python CLI that acquires direct links to operating system's ISO installers",
+    "group": "python",
+    "name": "LatestOS",
+    "overview": "**LatestOS** was born out of the desire for having a completely automated Packer build system that synchronizes with the latest releases of mainstream operating systems. Install LatestOS with `pip3` and then save the latest ISO download URLs and their SHA256SUMs to JSON files. It works by scanning a Linux distribution mirror (in the case of Linux). For Windows, it actually does some web scraping - there are details on settings up LatestOS for automatically acquiring the latest Windows Insider Preview ISO installer file below.",
+    "repository": {
+      "github": "https://github.com/ProfessorManhattan/latestos",
+      "gitlab": "https://gitlab.com/megabyte-labs/python/cli/latestos"
+    },
+    "slug": "latestos",
+    "subgroup": "cli",
+    "subheader_description": "Automatically scrape the ISO web link and SHA256SUM of the latest version of a handful of operating systems",
+    "title": "LatestOS - Automated ISO Installer Links",
+    "github_id": "R_kgDOGt016Q",
+    "gitlab_project_id": "24728174",
+    "gitlab_group_id": "14289563"
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ],
+    "helpUrl": "https://megabyte.space/docs/contributing/commits"
+  },
+  "eslintConfig": {
+    "extends": "eslint-config-strict-mode"
+  },
+  "funding": [
+    {
+      "type": "opencollective",
+      "url": "https://opencollective.com/megabytelabs"
+    },
+    {
+      "type": "patreon",
+      "url": "https://www.patreon.com/ProfessorManhattan"
+    }
+  ],
   "lint-staged": {
     "**/!(logo).(jpg|png)": [
       "task image:compress --"
@@ -115,7 +136,6 @@
       "task image:compress --"
     ]
   },
-  "name": "latestos",
   "ntl": {
     "descriptions": {
       "help": "Display a list of tasks that can be run via the Taskfile.yml",
@@ -124,12 +144,7 @@
       "start": "Entrypoint for new developers that installs requirements and then runs 'task start'"
     }
   },
-  "optionalDependencies": {},
   "prettier": "@washingtondc/prettier",
-  "private": false,
-  "publishConfig": {
-    "access": "public"
-  },
   "release": {
     "branches": [
       "next",
@@ -143,17 +158,5 @@
       }
     ],
     "extends": "@washingtondc/release"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/ProfessorManhattan/latestos.git"
-  },
-  "scripts": {
-    "help": "task --list",
-    "prepare": "task common:husky",
-    "repair": "bash <(curl -sS https://install.doctor/repair)",
-    "start": "bash .config/start.sh"
-  },
-  "type": "module",
-  "version": "0.0.1"
+  }
 }
