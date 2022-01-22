@@ -1,10 +1,10 @@
 {{ load:.config/docs/common/readme/header.md }}
-{{ load:.config/docs/readme-library/subheader.md }}
-{{ load:.config/docs/readme-library/quick-description.md }}
+{{ load:.config/docs/readme/subheader.md }}
+{{ load:.config/docs/readme/quick-description.md }}
 {{ template:toc }}
 {{ load:.config/docs/readme/overview.md }}
-{{ load:docs/partials/features.md }}
-{{ load:.config/docs/readme-library/installation.md }}
-{{ load:docs/partials/usage.md }}
+{{ load:.config/docs/readme/installation.md }}
+{{ load:.config/docs/readme/requirements.md }}
+{{ load:.assets/docs.md }}
 {{ load:.config/docs/common/readme/contribute.md }}
 {{ load:.config/docs/common/readme/license.md }}

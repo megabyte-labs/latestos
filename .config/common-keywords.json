@@ -1,14 +1,18 @@
 {
   "keywords": [
-    "automation",
+    "advanced",
+    "bandit",
+    "beginner",
+    "boilerplate",
     "cli",
-    "go",
-    "go-lang",
-    "golang",
+    "easy",
+    "gitlab-ci",
     "mblabs",
     "megabytelabs",
+    "poetry",
     "professormanhattan",
-    "terminal",
+    "pytest",
+    "python",
     "washingtondc"
   ]
 }

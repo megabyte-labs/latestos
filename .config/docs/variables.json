@@ -10,6 +10,7 @@
   "autodoc_todo_description": "",
   "autodoc_variables_description": "",
   "badge_style": "for-the-badge",
+  "build_coverage_regex": "^TOTAL.+?(\\d+.\\d+\\%)$",
   "commit_help_url": "https://megabyte.space/docs/contributing/commit-guidelines",
   "company": "Megabyte LLC",
   "copyright": "2020-2021",
@@ -19,14 +20,14 @@
     "header_description_pre": "<i></i>",
     "header_title_post": "<i></i>",
     "header_title_pre": "<i></i>",
-    "link": "https://megabyte.space/docs/common/go"
+    "link": "https://megabyte.space/docs/common/python"
   },
   "email": {
     "help": "help@megabyte.space"
   },
   "emoji_beginnings": ["🚀 ", "🔥👉 ", "👉 ", "😉 ", "🆓 ", "🐴 ", "👀 ", "🎉 ", "", "", "", "", "", "", "", ""],
   "emoji_endings": [" 🚀", " 🔥🔥🔥", " 👏", " 😉", " 🐙", " 🐴", " 👀", " 🎟", " 🎉🎉", "", "", "", "", "", "", ""],
-  "github_prefix": "<i></i>",
+  "github_prefix": "python-",
   "gitlab_pipelines": [
     {
       "active": true,
@@ -65,6 +66,7 @@
   "organization": "Megabyte Labs",
   "overview": "[[ This is a new repository without the details filled in yet. Look for the section about blueprint data in the CONTRIBUTING.md to set up the project. ]]",
   "profile": {
+    "dockerHubUser": "professormanhattan",
     "dockerhub": "megabytelabs",
     "galaxy": "professormanhattan",
     "github": "ProfessorManhattan",
@@ -93,6 +95,52 @@
     "twitter": "MegabyteLabs",
     "vagrant": "https://app.vagrantup.com"
   },
+  "releaseRules": [
+    {
+      "release": "patch",
+      "type": "build"
+    },
+    {
+      "release": "patch",
+      "type": "ci"
+    },
+    {
+      "release": false,
+      "type": "chore"
+    },
+    {
+      "release": false,
+      "type": "docs"
+    },
+    {
+      "release": "patch",
+      "type": "fix"
+    },
+    {
+      "release": "minor",
+      "type": "feat"
+    },
+    {
+      "release": "patch",
+      "type": "refactor"
+    },
+    {
+      "release": "patch",
+      "type": "revert"
+    },
+    {
+      "release": "patch",
+      "type": "perf"
+    },
+    {
+      "release": false,
+      "type": "style"
+    },
+    {
+      "release": false,
+      "type": "test"
+    }
+  ],
   "repository": {
     "github": "",
     "gitlab": "",
