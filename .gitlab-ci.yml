@@ -18,8 +18,6 @@ include:
   - remote: https://gitlab.com/megabyte-labs/gitlab-ci/-/raw/master/lint/shellcheck.gitlab-ci.yml
   - remote: https://gitlab.com/megabyte-labs/gitlab-ci/-/raw/master/lint/yamllint.gitlab-ci.yml
   - remote: https://gitlab.com/megabyte-labs/gitlab-ci/-/raw/master/lsif/python.gitlab-ci.yml
-  - remote: https://gitlab.com/megabyte-labs/gitlab-ci/-/raw/master/publish/docs/sphinx.gitlab-ci.yml
-  - remote: https://gitlab.com/megabyte-labs/gitlab-ci/-/raw/master/publish/python/dockerize.gitlab-ci.yml
-  - remote: https://gitlab.com/megabyte-labs/gitlab-ci/-/raw/master/publish/python/pypi.gitlab-ci.yml
+  - remote: https://gitlab.com/megabyte-labs/gitlab-ci/-/raw/master/publish/semantic-release.gitlab-ci.yml
   - remote: https://gitlab.com/megabyte-labs/gitlab-ci/-/raw/master/test/python.gitlab-ci.yml
   - remote: https://gitlab.com/megabyte-labs/gitlab-ci/-/raw/master/update/project.gitlab-ci.yml
