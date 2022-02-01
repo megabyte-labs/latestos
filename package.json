@@ -82,6 +82,16 @@
     "subheader_description": "Automatically scrape the ISO web link and SHA256SUM of the latest version of a handful of operating systems",
     "title": "LatestOS - Automated ISO Installer Links"
   },
+  "changelog": {
+    "displayTypes": [
+      "feat",
+      "fix",
+      "perf",
+      "refactor",
+      "revert"
+    ],
+    "showAuthor": true
+  },
   "commitlint": {
     "extends": [
       "@commitlint/config-conventional"
