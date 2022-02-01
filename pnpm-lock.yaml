@@ -4,10 +4,10 @@ specifiers:
   '@commitlint/config-conventional': ^16.0.0
   '@washingtondc/development': latest
   cz-emoji-conventional: ^1.0.1
-  eslint-config-strict-mode: ^1.0.35
+  eslint-config-strict-mode: latest
   handlebars-helpers: ^0.10.0
-  prettier-config-sexy-mode: ^1.0.1
-  semantic-release-config: ^0.0.17
+  prettier-config-sexy-mode: latest
+  semantic-release-config: latest
 
 devDependencies:
   '@commitlint/config-conventional': 16.0.0
