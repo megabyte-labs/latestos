@@ -14,7 +14,7 @@
   <a href="https://megabyte.space" title="Megabyte Labs homepage" target="_blank">
     <img alt="Homepage" src="https://img.shields.io/website?down_color=%23FF4136&down_message=Down&label=Homepage&logo=home-assistant&logoColor=white&up_color=%232ECC40&up_message=Up&url=https%3A%2F%2Fmegabyte.space&style=for-the-badge" />
   </a>
-  <a href="https://github.com/ProfessorManhattan/latestos/blob/master/CONTRIBUTING.md" title="Learn about contributing" target="_blank">
+  <a href="https://github.com/ProfessorManhattan/latestos/blob/master/docs/CONTRIBUTING.md" title="Learn about contributing" target="_blank">
     <img alt="Contributing" src="https://img.shields.io/badge/Contributing-Guide-0074D9?logo=github-sponsors&logoColor=white&style=for-the-badge" />
   </a>
   <a href="https://app.slack.com/client/T01ABCG4NK1/C01NN74H0LW/details/" title="Chat with us on Slack" target="_blank">
@@ -54,8 +54,8 @@
 
 > </br><h4 align="center">**Automatically scrape the ISO web link and SHA256SUM of the latest version of a handful of operating systems**</h4></br>
 
-<!--TERMINALIZE![terminalizer_title](repository.group.python_cli/latestos* **github**: /raw/master/.demo.gif
-* **gitlab**: /-/raw/master/.demo.gif)TERMINALIZE-->
+<!--TERMINALIZE![terminalizer_title](repository.group.python_cli/latestos* **github**: /raw/master/docs/demo.gif
+* **gitlab**: /-/raw/master/docs/demo.gif)TERMINALIZE-->
 
 <a href="#table-of-contents" style="width:100%"><img style="width:100%" src="https://gitlab.com/megabyte-labs/assets/-/raw/master/png/aqua-divider.png" /></a>
 
@@ -204,7 +204,7 @@ task --list
 
 ## Contributing
 
-Contributions, issues, and feature requests are welcome! Feel free to check the [issues page](https://github.com/ProfessorManhattan/latestos/issues). If you would like to contribute, please take a look at the [contributing guide](https://github.com/ProfessorManhattan/latestos/blob/master/CONTRIBUTING.md).
+Contributions, issues, and feature requests are welcome! Feel free to check the [issues page](https://github.com/ProfessorManhattan/latestos/issues). If you would like to contribute, please take a look at the [contributing guide](https://github.com/ProfessorManhattan/latestos/blob/master/docs/CONTRIBUTING.md).
 
 <details>
 <summary><b>Sponsorship</b></summary>
