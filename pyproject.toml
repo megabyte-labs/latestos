@@ -72,6 +72,12 @@ sh = "^1.14.2"
 Sphinx = "^4.1.2"
 sphinx-press-theme = "^0.8.0"
 
+# semantic extras -> `poetry install -E semantic`
+pip = { version = "^21.3.0", optional = true }
+setuptools = { version = "^58.2.0", optional = true }
+twine = { version = "^3.4.2", optional = true }
+wheel = { version = "^0.37.0", optional = true }
+
 [tool.poetry.dev-dependencies]
 bandit = "^1.7.0"
 black = "^21.8b0"
@@ -86,6 +92,14 @@ pylint = "^2.10.2"
 PySnooper = "^1.0.0"
 pytest = "^6.2.5"
 yamllint = "^1.26.3"
+
+[tool.poetry.extras]
+semantic = [
+  "pip",
+  "setuptools",
+  "twine",
+  "wheel"
+]
 
 [tool.poetry.urls]
 "Bug Tracker" = "https://gitlab.com/megabyte-labs/python/cli/latestos/-/issues"
