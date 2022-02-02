@@ -4,7 +4,7 @@ from setuptools import setup, find_packages
 setup(
     name="latestos",
     packages=find_packages(),
-    version="0.5",
+    version="0.5.0",
     license="MIT",
     description="Latest OS version checker for Linux Distros using the "
     "Arizona Mirror and Windows 10 Insiders Preview",
