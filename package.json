@@ -21,7 +21,7 @@
     "prepare": "task common:husky",
     "repair": "bash <(curl -sS https://install.doctor/repair)",
     "start": "bash start.sh",
-    "test": "[[ -z $CI ]] &amp;&amp; task python:test:pytest || task python:test:ci"
+    "test": "[[ -z $CI ]] && task python:test:pytest || task python:test:ci"
   },
   "config": {
     "commitizen": {
