@@ -2,7 +2,8 @@ from latestos.scraper.mirrors import ArizonaMirror
 
 
 class FedoraScraper(ArizonaMirror):
-    """ Latest Fedora Version Checker """
+    """Latest Fedora Version Checker"""
+
     URL = "https://mirror.arizona.edu/fedora/linux/releases/"
     RELEASE_ISO_URL_SUFFIX = "Server/x86_64/iso/"
     OS_NAME = "Fedora"

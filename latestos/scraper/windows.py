@@ -11,8 +11,10 @@ from latestos.client.selenium.firefox import FirefoxClient
 from latestos.client.selenium.base import BROWSER_TIMEOUT as TIMEOUT
 
 
-ISO_DOWNLOAD = "https://www.microsoft.com/en-us/software-download/windowsinsi" \
-               "derpreviewiso?wa=wsignin1.0"
+ISO_DOWNLOAD = (
+    "https://www.microsoft.com/en-us/software-download/windowsinsi"
+    "derpreviewiso?wa=wsignin1.0"
+)
 
 
 SELECTORS = {
@@ -82,13 +84,13 @@ class WindowsInsidersPreviewScraper(BaseScraper):
                 )
             )
         except Exception as e:
-            self._handle_client_error(
-                client, e, f"Error while loading {ISO_DOWNLOAD}")
+            self._handle_client_error(client, e, f"Error while loading {ISO_DOWNLOAD}")
 
     def _open_login_page(self, client: FirefoxClient) -> None:
         try:
             login_button = client.driver.find_element_by_css_selector(
-                SELECTORS["ISO_DOWNLOAD_HOME_LOGIN_BTN"])
+                SELECTORS["ISO_DOWNLOAD_HOME_LOGIN_BTN"]
+            )
             login_button.click()
 
             _ = WebDriverWait(client.driver, TIMEOUT).until(
@@ -97,8 +99,7 @@ class WindowsInsidersPreviewScraper(BaseScraper):
                 )
             )
         except Exception as e:
-            self._handle_client_error(
-                client, e, f"Error while loading login form")
+            self._handle_client_error(client, e, f"Error while loading login form")
 
     def _submit_email(self, client: FirefoxClient) -> None:
         try:
@@ -106,32 +107,36 @@ class WindowsInsidersPreviewScraper(BaseScraper):
             while not valid_email:
                 valid_email = self._enter_and_validate_email(client)
         except Exception as e:
-            self._handle_client_error(
-                client, e, f"Error while submitting email")
+            self._handle_client_error(client, e, f"Error while submitting email")
 
     def _enter_and_validate_email(self, client: FirefoxClient) -> bool:
         email_input = client.driver.find_element_by_css_selector(
-                SELECTORS["LOGIN_PAGE_EMAIL"])
+            SELECTORS["LOGIN_PAGE_EMAIL"]
+        )
         email = input("Enter your Microsoft's account email: ")
         email_input.send_keys(email)
 
         email_next = client.driver.find_element_by_css_selector(
-            SELECTORS["LOGIN_PAGE_EMAIL_NEXT"])
+            SELECTORS["LOGIN_PAGE_EMAIL_NEXT"]
+        )
         email_next.click()
 
         _ = WebDriverWait(client.driver, TIMEOUT).until(
-            EC.visibility_of_element_located((
-                By.CSS_SELECTOR,
-                f"{SELECTORS['LOGIN_PAGE_EMAIL_ERROR']}, " \
-                f"{SELECTORS['PERSONAL_ACCOUNT']}, " \
-                f"{SELECTORS['LOGIN_PAGE_PASSWORD']}"
-            ))
+            EC.visibility_of_element_located(
+                (
+                    By.CSS_SELECTOR,
+                    f"{SELECTORS['LOGIN_PAGE_EMAIL_ERROR']}, "
+                    f"{SELECTORS['PERSONAL_ACCOUNT']}, "
+                    f"{SELECTORS['LOGIN_PAGE_PASSWORD']}",
+                )
+            )
         )
 
         # Check if there was an error
         try:
             _ = client.driver.find_element_by_css_selector(
-                SELECTORS["LOGIN_PAGE_EMAIL_ERROR"])
+                SELECTORS["LOGIN_PAGE_EMAIL_ERROR"]
+            )
             return False
         except Exception:
             return True
@@ -139,7 +144,8 @@ class WindowsInsidersPreviewScraper(BaseScraper):
     def _select_personal_account(self, client: FirefoxClient) -> None:
         try:
             personal_account = client.driver.find_element_by_css_selector(
-                SELECTORS["PERSONAL_ACCOUNT"])
+                SELECTORS["PERSONAL_ACCOUNT"]
+            )
             personal_account.click()
 
             _ = WebDriverWait(client.driver, TIMEOUT).until(
@@ -150,8 +156,7 @@ class WindowsInsidersPreviewScraper(BaseScraper):
         except NoSuchElementException as e:
             return
         except Exception as e:
-            self._handle_client_error(
-                client, e, f"Error while selecting account")
+            self._handle_client_error(client, e, f"Error while selecting account")
 
     def _submit_password(self, client: FirefoxClient) -> None:
         try:
@@ -159,42 +164,48 @@ class WindowsInsidersPreviewScraper(BaseScraper):
             while not valid_password:
                 valid_password = self._enter_and_validate_password(client)
         except Exception as e:
-            self._handle_client_error(
-                client, e, f"Error while submitting password")
+            self._handle_client_error(client, e, f"Error while submitting password")
 
     def _enter_and_validate_password(self, client: FirefoxClient) -> bool:
         password_input = client.driver.find_element_by_css_selector(
-                SELECTORS["LOGIN_PAGE_PASSWORD"])
+            SELECTORS["LOGIN_PAGE_PASSWORD"]
+        )
         password = input("Enter your Microsoft's account password: ")
         password_input.send_keys(password)
 
         password_next = client.driver.find_element_by_css_selector(
-            SELECTORS["LOGIN_PAGE_PASSWORD_NEXT"])
+            SELECTORS["LOGIN_PAGE_PASSWORD_NEXT"]
+        )
         password_next.click()
 
         _ = WebDriverWait(client.driver, TIMEOUT).until(
-            EC.visibility_of_element_located((
-                By.CSS_SELECTOR,
-                f"{SELECTORS['LOGIN_PAGE_PASSWORD_ERROR']}, " \
-                f"{SELECTORS['DOWNLOAD_PAGE_HEADER']}"
-            ))
+            EC.visibility_of_element_located(
+                (
+                    By.CSS_SELECTOR,
+                    f"{SELECTORS['LOGIN_PAGE_PASSWORD_ERROR']}, "
+                    f"{SELECTORS['DOWNLOAD_PAGE_HEADER']}",
+                )
+            )
         )
 
         # Check if there was an error
         try:
             _ = client.driver.find_element_by_css_selector(
-                SELECTORS["LOGIN_PAGE_PASSWORD_ERROR"])
+                SELECTORS["LOGIN_PAGE_PASSWORD_ERROR"]
+            )
             return False
         except Exception:
             return True
 
     def _select_product_edition(self, client: FirefoxClient) -> None:
         try:
-            edition = Select(client.driver.find_element_by_css_selector(
-                SELECTORS["SELECT_EDITION"]))
-            edition.select_by_index(4) # Enterprise Dev Channel
+            edition = Select(
+                client.driver.find_element_by_css_selector(SELECTORS["SELECT_EDITION"])
+            )
+            edition.select_by_index(4)  # Enterprise Dev Channel
             edition_submit = client.driver.find_element_by_css_selector(
-                SELECTORS["SUBMIT_EDITION"])
+                SELECTORS["SUBMIT_EDITION"]
+            )
             edition_submit.click()
 
             _ = WebDriverWait(client.driver, TIMEOUT).until(
@@ -204,42 +215,49 @@ class WindowsInsidersPreviewScraper(BaseScraper):
             )
         except Exception as e:
             self._handle_client_error(
-                client, e, "Error while selecting product edition")
+                client, e, "Error while selecting product edition"
+            )
 
     def _select_product_language(self, client: FirefoxClient) -> None:
         try:
-            language = Select(client.driver.find_element_by_css_selector(
-                SELECTORS["SELECT_LANGUAGE"]))
-            language.select_by_index(8) # English
+            language = Select(
+                client.driver.find_element_by_css_selector(SELECTORS["SELECT_LANGUAGE"])
+            )
+            language.select_by_index(8)  # English
             language_submit = client.driver.find_element_by_css_selector(
-                SELECTORS["SUBMIT_LANGUAGE"])
+                SELECTORS["SUBMIT_LANGUAGE"]
+            )
             language_submit.click()
 
             _ = WebDriverWait(client.driver, TIMEOUT).until(
-                EC.visibility_of_element_located((
-                    By.CSS_SELECTOR,
-                    f"{SELECTORS['64BIT_DOWNLOAD']}, " \
-                    f"{SELECTORS['DOWNLOAD_ERROR']}"
-                ))
+                EC.visibility_of_element_located(
+                    (
+                        By.CSS_SELECTOR,
+                        f"{SELECTORS['64BIT_DOWNLOAD']}, "
+                        f"{SELECTORS['DOWNLOAD_ERROR']}",
+                    )
+                )
             )
 
             try:
                 _ = client.driver.find_element_by_css_selector(
-                    SELECTORS["64BIT_DOWNLOAD"])
+                    SELECTORS["64BIT_DOWNLOAD"]
+                )
             except Exception as e:
                 raise e
         except Exception as e:
             self._handle_client_error(
-                client, e, "Error while selecting product language")
+                client, e, "Error while selecting product language"
+            )
 
     def _get_download_link(self, client: FirefoxClient) -> str:
         try:
             link = client.driver.find_element_by_css_selector(
-                SELECTORS["64BIT_DOWNLOAD"])
+                SELECTORS["64BIT_DOWNLOAD"]
+            )
             return link.get_attribute("href")
         except Exception as e:
-            self._handle_client_error(
-                client, e, "Error while extracting download link")
+            self._handle_client_error(client, e, "Error while extracting download link")
 
     def _attempt_logout(self, client: FirefoxClient) -> None:
         try:
@@ -254,7 +272,8 @@ class WindowsInsidersPreviewScraper(BaseScraper):
         try:
             # Look for sign out button
             account = client.driver.find_element_by_css_selector(
-                SELECTORS["ACCOUNT_BUTTON"])
+                SELECTORS["ACCOUNT_BUTTON"]
+            )
             account.click()
 
             _ = WebDriverWait(client.driver, TIMEOUT).until(
@@ -265,7 +284,8 @@ class WindowsInsidersPreviewScraper(BaseScraper):
 
             # Click sign out button
             sign_out = client.driver.find_element_by_css_selector(
-                SELECTORS["SIGN_OUT_BUTTON"])
+                SELECTORS["SIGN_OUT_BUTTON"]
+            )
             sign_out.click()
 
             # Wait until logged out
@@ -280,8 +300,7 @@ class WindowsInsidersPreviewScraper(BaseScraper):
                 )
             )
         except Exception as e:
-            self._handle_client_error(
-                client, e, f"Error while logging out")
+            self._handle_client_error(client, e, f"Error while logging out")
 
     def _handle_client_error(
         self, client: FirefoxClient, e: Exception, msg: str
@@ -330,5 +349,4 @@ class WindowsInsidersPreviewScraper(BaseScraper):
         try:
             return version_with_lang.split("_", 1)[1].replace("_", ".")
         except Exception:
-            raise ValueError(
-                f"Could not extract WIP version from {version_with_lang}")
+            raise ValueError(f"Could not extract WIP version from {version_with_lang}")

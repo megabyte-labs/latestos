@@ -10,6 +10,7 @@ class BaseScraper(ABC):
     It defines common functionality amongst all latest OS scrapers.
     One must override all non implemented methods and the URL variable.
     """
+
     # Root URL of the mirror
     URL = None
 
@@ -61,7 +62,9 @@ class BaseScraper(ABC):
         """
         raise NotImplementedError()
 
-    def get_iso_checksum_url(self, release: HtmlElement, iso_filename: str, release_url: str) -> str:
+    def get_iso_checksum_url(
+        self, release: HtmlElement, iso_filename: str, release_url: str
+    ) -> str:
         """
         Extracts ISO checksum URL from release.
 

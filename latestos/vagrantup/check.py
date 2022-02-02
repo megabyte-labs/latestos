@@ -4,10 +4,7 @@ import lxml.html
 
 VAGRANTUP_BOX_URL = "https://app.vagrantup.com/ProfessorManhattan/"
 
-VAGRANTUP_BOX_OS_LIST = [
-    "ubuntu",
-    "arch"
-]
+VAGRANTUP_BOX_OS_LIST = ["ubuntu", "arch"]
 
 
 def vagrantup_check(os_name: str, version: str) -> bool:

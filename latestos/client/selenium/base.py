@@ -10,6 +10,7 @@ class SeleniumClient(BaseClient, ABC):
     """
     Uses selenium and a selenium driver.
     """
+
     headers = {}
     timeout = None if BROWSER_TIMEOUT == 0 else BROWSER_TIMEOUT
 
@@ -55,10 +56,7 @@ class SeleniumClient(BaseClient, ABC):
         return None, html_source
 
     def post(
-        self,
-        url: str,
-        data: dict,
-        content_type: Optional[str] = None
+        self, url: str, data: dict, content_type: Optional[str] = None
     ) -> Tuple[Any, str]:
         """
         Makes a POST request to the given URL.
@@ -95,11 +93,9 @@ class SeleniumClient(BaseClient, ABC):
         for cookie in cookies:
             cookie_data = cookie.items()
             for cookie_name, cookie_val in cookie_data:
-                self.driver.add_cookie({
-                    "name": cookie_name,
-                    "value": cookie_val,
-                    "domain": url
-                })
+                self.driver.add_cookie(
+                    {"name": cookie_name, "value": cookie_val, "domain": url}
+                )
 
     def close(self) -> None:
         """

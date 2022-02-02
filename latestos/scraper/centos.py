@@ -2,7 +2,8 @@ from latestos.scraper.mirrors import ArizonaMirror
 
 
 class CentOSScraper(ArizonaMirror):
-    """ Latest CentOS Version Checker """
+    """Latest CentOS Version Checker"""
+
     URL = "https://mirror.arizona.edu/centos/"
     RELEASE_ISO_URL_SUFFIX = "isos/x86_64/"
     OS_NAME = "CentOS"
@@ -25,9 +26,9 @@ class CentOSScraper(ArizonaMirror):
             if "stream" not in link_version:
                 continue
 
-            version_number = link_version.replace("-stream", "") \
-                                         .replace(".", "") \
-                                         .replace("/", "")
+            version_number = (
+                link_version.replace("-stream", "").replace(".", "").replace("/", "")
+            )
 
             # Check if link is an OS version link (only numbers)
             if version_number.isnumeric():

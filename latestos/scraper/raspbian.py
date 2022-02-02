@@ -6,6 +6,7 @@ class RaspbianScraper(ArizonaMirror):
     Latest Raspbian Version Checker
     Note that this does not extract data from an Arizona Mirror
     """
+
     URL = "https://downloads.raspberrypi.org/rpd_x86/images/"
     OS_NAME = "Raspbian"
 

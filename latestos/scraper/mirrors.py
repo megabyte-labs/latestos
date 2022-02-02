@@ -12,6 +12,7 @@ class ArizonaMirror(BaseScraper, ABC):
     ArizonaMirror is an abstract class like BaseScraper, but it has a lot of
     functionality already defined.
     """
+
     URL = ""
     RELEASE_ISO_URL_SUFFIX = ""
     OS_NAME = "OS"
@@ -35,8 +36,7 @@ class ArizonaMirror(BaseScraper, ABC):
 
         # If the link was not found, raise error
         if not latest_release_url:
-            raise Exception(
-                f"Could not find latest {self.__class__.OS_NAME} release")
+            raise Exception(f"Could not find latest {self.__class__.OS_NAME} release")
 
         # Fetch data for latest release, parse the html, then return both
         r = self.fetch(latest_release_url)
@@ -60,7 +60,7 @@ class ArizonaMirror(BaseScraper, ABC):
             (str): parsed and formatted latest release url
         """
         url = link.xpath(".//@href")[0]
-        return f'{self.__class__.URL}{url}{self.__class__.RELEASE_ISO_URL_SUFFIX}'
+        return f"{self.__class__.URL}{url}{self.__class__.RELEASE_ISO_URL_SUFFIX}"
 
     def get_iso_filename_and_url(self, release: HtmlElement, release_url: str) -> tuple:
         """
@@ -91,7 +91,9 @@ class ArizonaMirror(BaseScraper, ABC):
         """
         raise NotImplementedError()
 
-    def get_iso_checksum_url(self, release: HtmlElement, iso_filename: str, release_url: str) -> str:
+    def get_iso_checksum_url(
+        self, release: HtmlElement, iso_filename: str, release_url: str
+    ) -> str:
         """
         Extracts ISO checksum URL from release.
 

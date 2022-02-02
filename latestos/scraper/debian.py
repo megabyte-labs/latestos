@@ -5,9 +5,12 @@ from lxml.html import HtmlElement
 
 
 class DebianScraper(ArizonaMirror):
-    """ Latest Debian Version Checker """
+    """Latest Debian Version Checker"""
+
     URL = "https://mirror.arizona.edu/debian-cd/current-live/amd64/iso-hybrid/"
-    SHASUMS_URL = "https://mirror.arizona.edu/debian-cd/current-live/amd64/iso-hybrid/SHA1SUMS"
+    SHASUMS_URL = (
+        "https://mirror.arizona.edu/debian-cd/current-live/amd64/iso-hybrid/SHA1SUMS"
+    )
     OS_NAME = "Debian"
 
     def get_latest_release(self) -> tuple:
@@ -33,7 +36,9 @@ class DebianScraper(ArizonaMirror):
         """
         return href.endswith("amd64-standard.iso")
 
-    def get_iso_checksum_url(self, release: HtmlElement, iso_filename: str, release_url: str) -> str:
+    def get_iso_checksum_url(
+        self, release: HtmlElement, iso_filename: str, release_url: str
+    ) -> str:
         """
         Extracts ISO checksum URL from release.
 

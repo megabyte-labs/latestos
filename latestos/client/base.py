@@ -3,7 +3,7 @@ from typing import Any, Dict, List, Tuple
 
 
 class BaseClient(ABC):
-    """ Defines the interface used to make requests through the web """
+    """Defines the interface used to make requests through the web"""
 
     def get(self, url: str, *args, **kwargs) -> Tuple[Any, str]:
         """

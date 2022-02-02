@@ -2,7 +2,8 @@ from latestos.scraper.mirrors import ArizonaMirror
 
 
 class UbuntuScraper(ArizonaMirror):
-    """ Latest Ubuntu Version Checker """
+    """Latest Ubuntu Version Checker"""
+
     URL = "https://mirror.arizona.edu/ubuntu-releases/"
     OS_NAME = "Ubuntu"
 

@@ -2,7 +2,8 @@ import json
 
 
 def update_json_release_file(
-    json_file: str, iso_url: str, checksum_url: str, version: str):
+    json_file: str, iso_url: str, checksum_url: str, version: str
+):
     """
     Reads a JSON file and updates the latest OS release variables.
     """

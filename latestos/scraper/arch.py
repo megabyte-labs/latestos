@@ -2,8 +2,10 @@ import lxml.html
 
 from latestos.scraper.mirrors import ArizonaMirror
 
+
 class ArchScraper(ArizonaMirror):
-    """ Latest Arch Version Checker """
+    """Latest Arch Version Checker"""
+
     URL = "https://mirror.arizona.edu/archlinux/iso/latest/"
     OS_NAME = "Arch"
 
@@ -38,4 +40,3 @@ class ArchScraper(ArizonaMirror):
             (bool): is iso checksum file
         """
         return href == "sha1sums.txt"
-    
