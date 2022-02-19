@@ -197,7 +197,7 @@
   },
   "scriptsBuild": "task python:build",
   "scriptsHelp": "task --menu",
-  "scriptsPrepare": "npm run start && task common:husky",
+  "scriptsPrepare": "npm run start && (test -f Taskfile.yml && task common:husky) || true",
   "scriptsStart": "bash start.sh",
   "scriptsTest": "[[ -z $CI ]] && task python:test:pytest || task python:test:ci",
   "sharp_instructions": [],
