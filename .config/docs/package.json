@@ -17,7 +17,6 @@
   "type": "module",
   "scripts": {
     "build": "bash start.sh && task python:build",
-    "bump": "npm run build && npm version patch --no-commit-hooks --no-git-tag-version --force && npm publish",
     "commit": "bash start.sh && task commit",
     "fix": "bash start.sh && task fix",
     "help": "bash start.sh && task --menu",
@@ -49,24 +48,9 @@
     "typescript": "^4.5.5"
   },
   "keywords": [
-    "advanced",
-    "automation",
-    "bandit",
-    "beginner",
-    "boilerplate",
-    "cli",
-    "easy",
-    "gitlab-ci",
-    "go",
-    "go-lang",
-    "golang",
     "mblabs",
     "megabytelabs",
-    "poetry",
     "professormanhattan",
-    "pytest",
-    "python",
-    "terminal",
     "washingtondc"
   ],
   "engines": {
@@ -77,23 +61,10 @@
     "access": "public"
   },
   "blueprint": {
-    "binName": "latestos",
-    "customPackageName": "latestos",
-    "description": "A Python CLI that acquires direct links to operating system's ISO installers",
-    "github_id": "R_kgDOGt016Q",
-    "gitlab_group_id": "14289563",
-    "gitlab_project_id": "24728174",
-    "group": "python",
-    "name": "LatestOS",
-    "overview": "**LatestOS** was born out of the desire for having a completely automated Packer build system that synchronizes with the latest releases of mainstream operating systems. Install LatestOS with `pip3` and then save the latest ISO download URLs and their SHA256SUMs to JSON files. It works by scanning a Linux distribution mirror (in the case of Linux). For Windows, it actually does some web scraping - there are details on settings up LatestOS for automatically acquiring the latest Windows Insider Preview ISO installer file below.",
     "repository": {
       "github": "https://github.com/ProfessorManhattan/latestos",
       "gitlab": "https://gitlab.com/megabyte-labs/python/cli/latestos"
-    },
-    "slug": "latestos",
-    "subgroup": "cli",
-    "subheader_description": "Automatically scrape the ISO web link and SHA256SUM of the latest version of a handful of operating systems",
-    "title": "LatestOS - Automated ISO Installer Links"
+    }
   },
   "changelog": {
     "displayTypes": [
@@ -106,7 +77,9 @@
     "showAuthor": true
   },
   "commitlint": {
-    "extends": [],
+    "extends": [
+      "@commitlint/config-conventional"
+    ],
     "helpUrl": "https://megabyte.space/docs/contributing/commits"
   },
   "eslintConfig": {
@@ -122,17 +95,82 @@
       "url": "https://www.patreon.com/ProfessorManhattan"
     }
   ],
+  "lint-staged": {
+    "(Brewfile|composer.lock|Gemfile|Gopkg.lock|Pipfile.lock)": [
+      "task fix:prettier --"
+    ],
+    "**/!(logo).(jpg|png)": [
+      "task image:compress --"
+    ],
+    "**/*": [
+      "task lint:any --"
+    ],
+    "**/*!(template).(json|webapp|webmanifest)": [
+      "task fix:json --"
+    ],
+    "**/*.(bash|cfg|cgi|command|css|env|env.*|handlebars|hbs|html|less|fcgi|java|md|mdx|mjml|php|phtml|properties|reg|scss|tmpl|tmux|tool|tpl|zsh)": [
+      "task fix:prettier --"
+    ],
+    "**/*.(cjs|js|jsx|mjs|ts|tsx)": [
+      "task fix:js --",
+      "task lint:js --"
+    ],
+    "**/*.(yml|yaml)": [
+      "task fix:yaml --",
+      "task lint:yaml --"
+    ],
+    "**/*.go": [
+      "task fix:go --",
+      "task lint:go --"
+    ],
+    "**/*.md": [
+      "task fix:markdown --",
+      "task lint:spelling:markdown --"
+    ],
+    "**/*.php": [
+      "task fix:php --",
+      "task lint:php --"
+    ],
+    "**/*.py": [
+      "task fix:python --",
+      "task lint:python --"
+    ],
+    "**/*.sh": [
+      "task fix:prettier --",
+      "task fix:shell --",
+      "task lint:shell --"
+    ],
+    "**/*.toml": [
+      "task fix:toml --",
+      "task fix:prettier --",
+      "task lint:toml --"
+    ],
+    "**/*.xml": [
+      "task fix:xml --",
+      "task lint:xml --"
+    ],
+    "Dockerfile": [
+      "task fix:prettier --",
+      "task lint:docker --"
+    ],
+    "Vagrantfile": [
+      "task fix:prettier --",
+      "task lint:vagrant"
+    ],
+    "logo.png": [
+      "task image:resize -- 200 200",
+      "task image:compress --"
+    ]
+  },
   "ntl": {
     "descriptions": {
       "build": "Builds the project using the build command specified under scripts in package.json",
-      "bump": "Used to quickly build, increase the package.json version, and publish the package",
       "commit": "If unsure, use this task to commit your code so that it adheres to our commit rules",
       "fix": "Run auto-fixing with all available auto-fixers",
       "help": "Display the Bodega Taskfile.yml interactive help menu",
       "lint": "Lint the project with all available linters",
       "preload": "Preload the operating system with commonly used libraries and tools",
       "prepare": "A hook triggered by running npm install that runs logic such as installing pre-commit hooks",
-      "publish": "Publish the software to all supported channels using semantic-release",
       "release": "Publish the software to all supported channels using semantic-release",
       "repair": "Fixes basic issues in projects that are having trouble running basic commands like 'task start'",
       "start": "Entrypoint for new developers that installs requirements and then runs 'task start'",
@@ -144,7 +182,6 @@
   "pnpm": {
     "allowedVersions": {
       "@typescript-eslint/eslint-plugin": "5",
-      "eslint": "8",
       "typescript": "4"
     },
     "neverBuiltDependencies": [
