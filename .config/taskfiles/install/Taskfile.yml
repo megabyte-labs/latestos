@@ -193,7 +193,7 @@ tasks:
       start: Adding `$HOME/{{.PATH_STRING}}` to the PATH in $HOME/.profile
     cmds:
       - |
-        if [ '{{OS}}' == 'darwin' ] || [ '{{OS}}' == 'linux' ]; then
+        if [[ '{{.UNAME}}' == 'Darwin' ]] || [[ '{{.UNAME}}' == 'Linux' ]]; then
           # shellcheck disable=SC2016
           PATH_STRING='PATH="$HOME/{{.PATH_STRING}}:$PATH"'
           if ! grep "$PATH_STRING" "$HOME/.profile" > /dev/null; then
@@ -247,7 +247,7 @@ tasks:
       success: Successfully modified $HOME/.profile
     cmds:
       - |
-        if [ '{{OS}}' == 'darwin' ] || [ '{{OS}}' == 'linux' ]; then
+        if [[ "$OSTYPE" == 'darwin'* ]] || [[ "$OSTYPE" == 'linux-gnu'* ]]; then
           # shellcheck disable=SC2016
           PROFILE_STRING='{{.PROFILE_STRING}}'
           if ! grep "$PROFILE_STRING" "$HOME/.profile" > /dev/null; then
