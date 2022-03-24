@@ -87,7 +87,7 @@
     "name": "LatestOS",
     "overview": "**LatestOS** was born out of the desire for having a completely automated Packer build system that synchronizes with the latest releases of mainstream operating systems. Install LatestOS with `pip3` and then save the latest ISO download URLs and their SHA256SUMs to JSON files. It works by scanning a Linux distribution mirror (in the case of Linux). For Windows, it actually does some web scraping - there are details on settings up LatestOS for automatically acquiring the latest Windows Insider Preview ISO installer file below.",
     "repository": {
-      "github": "https://github.com/ProfessorManhattan/latestos",
+      "github": "https://github.com/megabyte-labs/latestos",
       "gitlab": "https://gitlab.com/megabyte-labs/python/cli/latestos"
     },
     "slug": "latestos",
