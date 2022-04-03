@@ -6,9 +6,15 @@ plugins:
     enabled: true
   eslint:
     enabled: true
+  flake8:
+    enabled: true
   jscpd:
     enabled: true
+  semgrep:
+    enabled: true
   shellcheck:
+    enabled: true
+  sonar-python:
     enabled: true
   yamllint:
     enabled: true
