@@ -1,9 +1,14 @@
-[build-system]
-build-backend = "poetry.core.masonry.api"
-requires = ["poetry-core>=1.0.0"]
-
 [tool.poetry]
+name = "latestos"
+version = "0.0.1"
+description = "A Python CLI that acquires direct links to operating system&#x27;s ISO installers"
 authors = ["Brian Zalewski <brian@megabyte.space>"]
+license = "MIT"
+readme = "README.md"
+homepage = "https://megabyte.space"
+documentation = "https://megabyte.space/docs/python/library"
+keywords = ["advanced", "automation", "bandit", "beginner", "boilerplate", "cli", "easy", "gitlab-ci", "go", "go-lang", "golang", "mblabs", "megabytelabs", "poetry", "professormanhattan", "pytest", "python", "terminal", "washingtondc"]
+include = ["CHANGELOG.md", "LICENSE"]
 classifiers = [
   "Development Status :: 4 - Beta",
   "Development Status :: 5 - Production/Stable",
@@ -49,20 +54,14 @@ classifiers = [
   "Topic :: System :: Installation/Setup",
   "Topic :: Utilities"
 ]
-description = "A Python CLI that acquires direct links to operating system&#x27;s ISO installers"
-documentation = "https://megabyte.space/docs/python/library"
-homepage = "https://megabyte.space"
-include = ["CHANGELOG.md", "LICENSE"]
-keywords = ["advanced", "automation", "bandit", "beginner", "boilerplate", "cli", "easy", "gitlab-ci", "go", "go-lang", "golang", "mblabs", "megabytelabs", "poetry", "professormanhattan", "pytest", "python", "terminal", "washingtondc"]
-license = "MIT"
-name = "latestos"
 packages = [
     { include = "latestos" }
 ]
-readme = "README.md"
-version = "0.0.1"
 
 [tool.poetry.dependencies]
+python = ">=3.7.2,<3.11"
+
+# Recommended packages - use these whenever possible
 aiohttp = { version = "^3.7.4", optional = true }
 arrow = { version = "^1.1.1", optional = true }
 better-exceptions = { version = "^0.3.3", optional = true }
@@ -70,16 +69,17 @@ celery = { version = "^5.1.2", optional = true }
 click = { version = "^8.0.3", optional = true }
 fire = { version = "^0.4.0", optional = true }
 furl = { version = "^2.1.2", optional = true }
-pip = { version = "^21.3.0", optional = true }
-python = ">=3.10.0,<3.11"
 requests = { version = "^2.26.0", optional = true }
 rich = { version = "^10.9.0", optional = true }
 schedule = { version = "^1.1.0", optional = true }
 schema = { version = "^0.7.4", optional = true }
-setuptools = { version = "^58.2.0", optional = true }
 sh = { version = "^1.14.2", optional = true }
 sphinx = { version = "^4.1.2", optional = true }
 sphinx-press-theme = { version = "^0.8.0", optional = true }
+
+# Semantic extras
+pip = { version = "^21.3.0", optional = true }
+setuptools = { version = "^58.2.0", optional = true }
 twine = { version = "^3.8.0", optional = true }
 wheel = { version = "^0.37.1", optional = true }
 
@@ -125,8 +125,12 @@ semantic = [
 
 [tool.poetry.urls]
 "Bug Tracker" = "https://gitlab.com/megabyte-labs/python/cli/latestos/-/issues"
-GitHub = "https://github.com/ProfessorManhattan/latestos"
-GitLab = "https://gitlab.com/megabyte-labs/python/cli/latestos"
+"GitHub" = "https://github.com/megabyte-labs/latestos"
+"GitLab" = "https://gitlab.com/megabyte-labs/python/cli/latestos"
 "Give Directly" = "https://givedirectly.org"
 "Open Collective" = "https://opencollective.com/megabytelabs"
-Patreon = "https://www.patreon.com/ProfessorManhattan"
+"Patreon" = "https://www.patreon.com/ProfessorManhattan"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
