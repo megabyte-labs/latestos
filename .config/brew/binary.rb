@@ -1,7 +1,7 @@
 class Latestos < Formula
   desc "A Python CLI that acquires direct links to operating system&#x27;s ISO installers"
   homepage "https://megabyte.space"
-  url "https://github.com/ProfessorManhattan/latestos/releases/download/v0.0.1/latestos.tar.gz"
+  url "https://github.com/megabyte-labs/latestos/releases/download/v0.0.1/latestos.tar.gz"
   version "0.0.1"
   license "MIT"
 
