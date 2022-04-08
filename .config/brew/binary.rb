@@ -10,7 +10,7 @@ class Latestos < Formula
   def install
     os = OS.kernel_name.downcase
     arch = Hardware::CPU.intel? ? "amd64" : Hardware::CPU.arch.to_s
-    bin.install "build/bin/latestos-#{os}_#{arch}" => "latestos"
+    bin.install "build/latestos-#{os}_#{arch}" => "latestos"
   done
 
   test do
