@@ -1,3 +1,4 @@
+# @binaryBrew [Latestos](https://github.com/megabyte-labs/latestos) - A Python CLI that acquires direct links to operating system&#x27;s ISO installers
 class Latestos < Formula
   desc "A Python CLI that acquires direct links to operating system&#x27;s ISO installers"
   homepage "https://megabyte.space"
