@@ -65,7 +65,9 @@
 ## Table of Contents
 
 - [Overview](#overview)
-- [This Repository (Shared Common)](#this-repository-shared-common)
+- [Usage](#usage)
+- [Examples](#examples)
+- [Options](#options)
 - [Installation](#installation)
   - [PyPi](#pypi)
   - [Install Doctor](#install-doctor)
@@ -82,11 +84,56 @@
 
 **LatestOS** was born out of the desire for having a completely automated Packer build system that synchronizes with the latest releases of mainstream operating systems. Install LatestOS with `pip3` and then save the latest ISO download URLs and their SHA256SUMs to JSON files. It works by scanning a Linux distribution mirror (in the case of Linux). For Windows, it actually does some web scraping - there are details on settings up LatestOS for automatically acquiring the latest Windows Insider Preview ISO installer file below.
 
-<a href="#this-repository-shared-common" style="width:100%"><img style="width:100%" src="https://gitlab.com/megabyte-labs/assets/-/raw/master/png/aqua-divider.png" /></a>
+<a href="#usage" style="width:100%"><img style="width:100%" src="https://gitlab.com/megabyte-labs/assets/-/raw/master/png/aqua-divider.png" /></a>
 
-## This Repository (Shared Common)
+## Usage
 
-This repository houses files that propagate downstream to project-specific repositories.
+Open your terminal and run:
+
+```sh
+latestos <os_name> <json_filename> <bash_command>
+```
+
+**NOTE:** The last argument is optional.
+
+<a href="#examples" style="width:100%"><img style="width:100%" src="https://gitlab.com/megabyte-labs/assets/-/raw/master/png/aqua-divider.png" /></a>
+
+## Examples
+
+```sh
+latestos fedora template.json
+```
+
+```sh
+latestos arch ./mydir/template.json
+```
+
+```sh
+latestos ubuntu template.json ls .
+```
+
+<a href="#options" style="width:100%"><img style="width:100%" src="https://gitlab.com/megabyte-labs/assets/-/raw/master/png/aqua-divider.png" /></a>
+
+## Options
+
+This CLI currently checks the following options/distros:
+
+- arch
+- ubuntu
+- fedora
+- centos
+- debian
+- raspbian
+- windows insiders preview
+
+**Windows Insiders Preview**
+
+If you're interested in extracting the latest OS version for Windows Insiders Preview, you'll need to:
+
+1. Install Firefox
+2. Download and extract the corresponding [geckodriver](https://github.com/mozilla/geckodriver/releases)
+3. Make sure it's executable. If it is not, just run: `chmod +x geckodriver`
+4. Add it to your `PATH` or any location on system's `PATH`
 
 <a href="#installation" style="width:100%"><img style="width:100%" src="https://gitlab.com/megabyte-labs/assets/-/raw/master/png/aqua-divider.png" /></a>
 
